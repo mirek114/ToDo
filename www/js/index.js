@@ -10,10 +10,6 @@ var currentTask = {
 	Deadline: ""
 }
 
-function editTask(task){
-	alert(task.Value);
-}
-
 function displayTasks(results){
 	var length = results.rows.length;
 	var lstTask = $("#lstTasks");
@@ -47,3 +43,4 @@ function deleteTask(){
 	tasksHandler.loadPriotiyTasks(displayTasks);
 	$("#popupUpdateDelete").popup("close");
 }
+

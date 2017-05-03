@@ -1,4 +1,27 @@
 var tasksHandler ={
+	saveTask: function(value, isDone, isPriority, deadline, id){
+		if(id <= 0)
+		{
+			addTask(value, isDone, isPriority, deadline);
+		}
+		else{
+			databaseHandler.db.transaction(
+				function(tx){
+					tx.executeSql(
+						"update Tasks set Value=?, IsDone=?, IsPriority=?, Deadline=? where Id =?",
+						[value, isDone, isPriority, deadline, id],
+						function(tx, results){},
+						function(tx, error){
+								console.log("Update Task error:" + error.message);
+						}
+					);
+				},
+				function(error){},
+				function(){}
+			);	
+		}
+	},
+	
 	addTask: function(value, isDone, isPriority, deadline){
 		databaseHandler.db.transaction(
 			function(tx){
