@@ -27,14 +27,13 @@
 						<input name="date" id="deadline" value="" type="date">
 
 						<label for="priority">Priorytet:</label>
-						<div class="ui-flipswitch ui-shadow-inset ui-bar-inherit ui-corner-all">
-							<a href="#" class="ui-flipswitch-on ui-btn ui-shadow ui-btn-inherit">Tak</a>
-							<span class="ui-flipswitch-off">Nie</span>
-							<input data-role="flipswitch" name="switch" id="priority" class="ui-flipswitch-input" tabindex="-1" type="checkbox">
-						</div>
-					  </div>
-					  
-						<a id="btnSave" href="#anylink" class="ui-btn" onclick="addTask()">Zapisz</a>
+						<select name="priority" id="priority" data-role="slider">
+							<option value="0">Nie</option>
+							<option value="1">Tak</option>
+						</select> 	
+						
+					</div>					  
+					<a id="btnSave" href="index.html" rel="external" class="ui-btn" onclick="addTask()">Zapisz</a>
 				</form>
 			 </div>
 		</div> 
