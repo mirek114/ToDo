@@ -14,5 +14,24 @@ var tasksHandler ={
 			function(error){},
 			function(){}
 		);
+	},
+	
+	loadPriotiyTasks: function(displayTasks){
+		databaseHandler.db.transaction(
+			function(tx){
+				tx.executeSql(
+					"select * from Tasks where IsPriority == 1",
+					[],
+					function(tx, results){
+						displayTasks(results);
+					},
+					function(tx, error){
+							console.log("Loading Tasks error:" + error.message);
+					}
+				);
+			},
+			function(error){},
+			function(){}
+		);
 	}
-}
+};
