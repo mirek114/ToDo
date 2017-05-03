@@ -29,8 +29,18 @@
 			  <input id="listFilter" data-type="search">
 			</form>
 			<ul id="lstTasks" data-role="listview" data-filter="true" data-input="#listFilter" data-inset="true">
-
 			</ul>
+			
+			<div data-role="popup" id="popupUpdateDelete">
+				<div data-role="header">
+					<a class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all" data-rel="back"></a>
+					<h1>Opcje</h1>
+				</div>
+				<div data-role="main" class="ui-content">
+					<a class="ui-btn ui-icon-delete ui-btn-icon-left ui-btn-inline" onclick="deleteTask()">Usuń</a>
+					<a class="ui-btn ui-icon-edit ui-btn-icon-left ui-btn-inline">Edytuj</a>
+				</div>
+			</div>
 		  </div>
 		</div> 
 

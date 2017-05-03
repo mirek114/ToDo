@@ -33,5 +33,20 @@ var tasksHandler ={
 			function(error){},
 			function(){}
 		);
+	},
+	
+	deleteTask: function(id){
+		databaseHandler.db.transaction(
+			function(tx){
+				tx.executeSql(
+					"delete from Tasks where Id = ?",
+					[id],
+					function(tx, results){},
+					function(tx, error){
+							console.log("Delete Task error:" + error.message);
+					}
+				);
+			}
+		);
 	}
 };
