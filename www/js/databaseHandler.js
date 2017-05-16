@@ -2,7 +2,7 @@ var databaseHandler = {
 	db: null,
 	createDatabase: function()
 	{
-		this.db = window.openDatabase(
+		this.db = openDatabase(
 			"toDo.db",
 			"1.0",
 			"toDo database",
