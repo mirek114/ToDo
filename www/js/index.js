@@ -33,14 +33,8 @@ function displayTasks(results){
 	});
 };
 
-document.addEventListener("deviceready", onDeviceReady, false);
-
-function onDeviceReady(){
-	databaseHandler.createDatabase();
-	tasksHandler.loadPriotiyTasks(displayTasks);
-}
-
 $(document).on("pagebeforeshow", "#priorities", function(){
+	databaseHandler.createDatabase();
 	tasksHandler.loadPriotiyTasks(displayTasks);
 });
 
