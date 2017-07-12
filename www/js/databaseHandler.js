@@ -2,11 +2,11 @@ var databaseHandler = {
 	db: null,
 	createDatabase: function()
 	{
-		this.db = openDatabase(
+		this.db = window.openDatabase(
 			"toDo.db",
 			"1.0",
 			"toDo database",
-			100000);
+			2*1024*1024);
 			
 		this.db.transaction(
 			function(tx){

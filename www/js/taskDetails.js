@@ -1,7 +1,3 @@
-$(document).on("ready", function(){
-	databaseHandler.createDatabase();
-});
-
 $(document).on("pagebeforeshow", "#taskDetails", function(){
 	$("#taskName").val(currentTask.Value);
 	$("#deadline").val(currentTask.Deadline);

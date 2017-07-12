@@ -1,6 +1,6 @@
-$(document).on("ready", function(){
+document.addEventListener("deviceready", function(){
 	databaseHandler.createDatabase();
-});
+}, false);
 
 var currentTask = {
 	Id: -1,
