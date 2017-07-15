@@ -17,7 +17,7 @@ function displayTasks(results){
 	for(var i = 0; i < length; i++ )
 	{
 		var item = results.rows.item(i);
-		var li = $("<li />").attr("id", item.Id);
+		var li = $("<li />").attr("id", item.Id).attr("deadline", item.Deadline).attr("isPriority", item.IsPriority);
 		var a = $("<a />");
 		var h3 = $("<h3 />").attr("name", "taskValue").text(item.Value);
 		a.append(h3);
@@ -28,6 +28,8 @@ function displayTasks(results){
 	lstTask.on("click", "li", function(){
 		currentTask.Value = $(this).find("[name='taskValue']").text();
 		currentTask.Id = $(this).attr("id");
+		currentTask.IsPriority = $(this).attr("isPriority");
+		currentTask.Deadline = $(this).attr("deadline");
 		
 		$("#popupUpdateDelete").popup("open");
 	});

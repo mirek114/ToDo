@@ -1,7 +1,7 @@
 $(document).on("pagebeforeshow", "#taskDetails", function(){
 	$("#taskName").val(currentTask.Value);
 	$("#deadline").val(currentTask.Deadline);
-	$("#priority").val(currentTask.IsPriority);
+	$("#priority").val(currentTask.IsPriority).change();
 	$("#task").attr("taskId", currentTask.Id);
 });
 
