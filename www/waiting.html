@@ -6,11 +6,15 @@
 		<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/databaseHandler.js"></script>
+		<script src="js/tasksHandler.js"></script>
+		<script src="js/waiting.js"></script>
 	</head>
 	<body>
-		<div data-role="page" id="priorities">
+		<div data-role="page" id="waiting">
 		  <div data-role="header">
 			<h1>Lista oczekujących zadań</h1>
+			<a href="#taskDetails" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-right ui-btn-icon-notext"></a>
 			<div data-role="navbar">
 			  <ul>
 				<li><a href="index.html" rel="external" >Priorytety</a></li>
@@ -21,7 +25,11 @@
 		  </div>
 
 		  <div data-role="main" class="ui-content">
-			<p>Oczekujące</p>
+			<form class="ui-filterable">
+			  <input id="listFilter" data-type="search">
+			</form>
+			<ul id="lstWaitingTasks" data-role="listview" data-filter="true" data-input="#listFilter" data-inset="true">
+			</ul>
 		  </div>
 		</div> 
 
