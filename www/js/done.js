@@ -23,7 +23,7 @@ function displayDoneTasks(results){
 	});
 };
 
-$(document).on("pagebeforeshow", "#waiting", function(){
+$(document).on("pagebeforeshow", "#done", function(){
 	databaseHandler.createDatabase();
-	tasksHandler.loadDoneTasks(displayWaitingTasks);
+	tasksHandler.loadDoneTasks(displayDoneTasks);
 });

@@ -39,7 +39,7 @@ var tasksHandler ={
 		databaseHandler.db.transaction(
 			function(tx){
 				tx.executeSql(
-					"select * from Tasks where IsPriority == 1",
+					"select * from Tasks where IsPriority = 1 and IsDone = 0",
 					[],
 					function(tx, results){
 						displayTasks(results);
@@ -58,7 +58,7 @@ var tasksHandler ={
 		databaseHandler.db.transaction(
 			function(tx){
 				tx.executeSql(
-					"select * from Tasks where IsPriority == 0",
+					"select * from Tasks where IsPriority = 0 and IsDone = 0",
 					[],
 					function(tx, results){
 						displayTasks(results);
@@ -77,7 +77,7 @@ var tasksHandler ={
 		databaseHandler.db.transaction(
 			function(tx){
 				tx.executeSql(
-					"select * from Tasks where IsDone == 0",
+					"select * from Tasks where IsDone = 1",
 					[],
 					function(tx, results){
 						displayTasks(results);

@@ -18,21 +18,36 @@ function displayTasks(results){
 	{
 		var item = results.rows.item(i);
 		var li = $("<li />").attr("id", item.Id).attr("deadline", item.Deadline).attr("isPriority", item.IsPriority);
-		var a = $("<a />");
-		var h3 = $("<h3 />").attr("name", "taskValue").text(item.Value);
-		a.append(h3);
-		li.append(a);
+		var label = $("<label>").attr("name", "taskValue").attr("style", "display: inline-block;").text(item.Value);
+		var check = $("<input />").attr("type", "checkbox").attr("class", "isDone");
+		li.append(check);
+		li.append(label);
+		
 		lstTask.append(li);
 	}
 	lstTask.listview("refresh");
-	lstTask.on("click", "li", function(){
-		currentTask.Value = $(this).find("[name='taskValue']").text();
-		currentTask.Id = $(this).attr("id");
-		currentTask.IsPriority = $(this).attr("isPriority");
-		currentTask.Deadline = $(this).attr("deadline");
+	
+	lstTask.on("click", "label", function(){
+		var li = this.parentElement;
+		currentTask.Id = li.id;
+		currentTask.Value = li.textContent;
+		currentTask.Deadline = li.attributes.deadline.value;
+		currentTask.IsPriority = li.attributes.ispriority.value;
 		
 		$("#popupUpdateDelete").popup("open");
 	});
+	
+	$(".isDone").on("click", function(){
+		var li = this.parentElement;
+		var id = li.id;
+		var name = li.textContent;
+		var deadline = li.attributes.deadline.value;
+		var priority = li.attributes.ispriority.value;
+		tasksHandler.saveTask(name, 1, priority, deadline, id);
+		
+		lstTask.listview("refresh");
+	});
+
 };
 
 $(document).on("pagebeforeshow", "#priorities", function(){
