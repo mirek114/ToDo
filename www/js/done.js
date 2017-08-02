@@ -6,10 +6,8 @@ function displayDoneTasks(results){
 	{
 		var item = results.rows.item(i);
 		var li = $("<li />").attr("id", item.Id).attr("deadline", item.Deadline).attr("isPriority", item.IsPriority);
-		var a = $("<a />");
 		var h3 = $("<h3 />").attr("name", "taskValue").text(item.Value);
-		a.append(h3);
-		li.append(a);
+		li.append(h3);
 		lstTask.append(li);
 	}
 	lstTask.listview("refresh");
