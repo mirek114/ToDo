@@ -105,5 +105,20 @@ var tasksHandler ={
 				);
 			}
 		);
+	},
+	
+	setPriorityTasks: function(){
+		databaseHandler.db.transaction(
+			function(tx){
+				tx.executeSql(
+					'update Tasks set IsPriority = 1 where Deadline !="" and Deadline < strftime("%Y-%m-%d", "now") and IsDone = 0',
+					[],
+					function(tx, results){},
+					function(tx, error){
+							console.log("Delete Task error:" + error.message);
+					}
+				);
+			}
+		);
 	}
 };

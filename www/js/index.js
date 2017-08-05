@@ -42,6 +42,7 @@ function displayTasks(results){
 
 $(document).on("pagebeforeshow", "#priorities", function(){
 	databaseHandler.createDatabase();
+	tasksHandler.setPriorityTasks();
 	tasksHandler.loadPriotiyTasks(displayTasks);
 });
 

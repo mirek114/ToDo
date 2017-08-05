@@ -1,12 +1,10 @@
-$(document).on("pagebeforeshow", "#taskDetails", function(){
-	databaseHandler.createDatabase();
-});
-
 $(document).on("pagebeforeshow", "#taskDetails", function(){	
+	databaseHandler.createDatabase();
 	$("#taskName").val(sessionStorage.getItem('Value'));
 	$("#deadline").val(sessionStorage.getItem('Deadline'));
 	$("#priority").val(sessionStorage.getItem('IsPriority')).change();
 	$("#task").attr("taskId", sessionStorage.getItem('Id'));
+	sessionStorage.clear();
 });
 
 function saveTask(){
