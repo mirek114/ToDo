@@ -1,15 +1,7 @@
-var currentTask = {
-	Id: -1,
-	Value: "",
-	IsDone: -1,
-	IsPriority: -1, 
-	Deadline: ""
-}
-
 function displayWaitingTasks(results){
 	var length = results.rows.length;
 	var lstTask = $("#lstWaitingTasks");
-lstTask.empty();
+	lstTask.empty();
 	for(var i = 0; i < length; i++ )
 	{
 		var item = results.rows.item(i);
@@ -53,6 +45,6 @@ $(document).on("pagebeforeshow", "#waiting", function(){
 
 function deleteTask(){
 	tasksHandler.deleteTask(currentTask.Id);
-	tasksHandler.loadPriotiyTasks(displayTasks);
+	tasksHandler.loadWaitingTasks(displayTasks);
 	$("#popupUpdateDelete").popup("close");
 }

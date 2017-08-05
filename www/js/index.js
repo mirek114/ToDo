@@ -1,15 +1,3 @@
-document.addEventListener("deviceready", function(){
-	databaseHandler.createDatabase();
-}, false);
-
-var currentTask = {
-	Id: -1,
-	Value: "",
-	IsDone: -1,
-	IsPriority: -1, 
-	Deadline: ""
-}
-
 function displayTasks(results){
 	var length = results.rows.length;
 	var lstTask = $("#lstTasks");
