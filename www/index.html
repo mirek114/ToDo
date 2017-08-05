@@ -10,8 +10,6 @@
 		<script src="js/tasksHandler.js"></script>
 		<script src="js/index.js"></script>
 		<script src="js/taskDetails.js"></script>
-		<script src="js/waiting.js"></script>
-		<script src="js/done.js"></script>
 	</head>
 	<body>	
 		<div data-role="page" id="priorities">
@@ -41,38 +39,11 @@
 				</div>
 				<div data-role="main" class="ui-content">
 					<a class="ui-btn ui-icon-delete ui-btn-icon-left ui-btn-inline" onclick="deleteTask()">Usuń</a>
-					<a href="#taskDetails" class="ui-btn ui-icon-edit ui-btn-icon-left ui-btn-inline">Edytuj</a>
+					<a href="taskDetails.html"  rel="external" class="ui-btn ui-icon-edit ui-btn-icon-left ui-btn-inline">Edytuj</a>
 				</div>
 			</div>
 		  </div>
-		</div> 
-		
-		<div data-role="page" id="taskDetails">
-		  <div data-role="header">
-			<a href="index.html" rel="external" class="ui-btn ui-icon-arrow-l ui-corner-all ui-btn-icon-left ui-btn-icon-notext"></a>
-			<h1>Zadanie</h1>
-		  </div>
-			<div data-role="main" class="ui-content">
-				<form method="get" action="">
-					<div id="task" class="ui-field-contain">
-					
-						<label for="taskName">Zadnie:</label>
-						<input name="text" id="taskName" value="" placeholder="Treść zadania..." type="text">
-
-						<label for="deadline">Termin wykonania:</label>
-						<input name="date" id="deadline" value="" type="date">
-
-						<label for="priority">Priorytet:</label>
-						<select name="priority" id="priority" data-role="slider">
-							<option value="0">Nie</option>
-							<option value="1">Tak</option>
-						</select> 	
-						
-					</div>					  
-					<a id="btnSave" href="index.html" rel="external" class="ui-btn" onclick="saveTask()">Zapisz</a>
-				</form>
-			 </div>
-		</div> 
+		</div>  
 
 	</body>
 </html>

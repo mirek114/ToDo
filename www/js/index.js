@@ -17,10 +17,11 @@ function displayTasks(results){
 	
 	lstTask.on("click", "label", function(){
 		var li = this.parentElement;
-		currentTask.Id = li.id;
-		currentTask.Value = li.textContent;
-		currentTask.Deadline = li.attributes.deadline.value;
-		currentTask.IsPriority = li.attributes.ispriority.value;
+		
+		sessionStorage.setItem('Id', li.id);
+		sessionStorage.setItem('Value', li.textContent);
+		sessionStorage.setItem('Deadline', li.attributes.deadline.value);
+		sessionStorage.setItem('IsPriority', li.attributes.ispriority.value);
 		
 		$("#popupUpdateDelete").popup("open");
 	});
@@ -33,6 +34,7 @@ function displayTasks(results){
 		var priority = li.attributes.ispriority.value;
 		tasksHandler.saveTask(name, 1, priority, deadline, id);
 		
+		tasksHandler.loadPriotiyTasks(displayTasks);
 		lstTask.listview("refresh");
 	});
 

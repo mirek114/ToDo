@@ -1,8 +1,12 @@
 $(document).on("pagebeforeshow", "#taskDetails", function(){
-	$("#taskName").val(currentTask.Value);
-	$("#deadline").val(currentTask.Deadline);
-	$("#priority").val(currentTask.IsPriority).change();
-	$("#task").attr("taskId", currentTask.Id);
+	databaseHandler.createDatabase();
+});
+
+$(document).on("pagebeforeshow", "#taskDetails", function(){	
+	$("#taskName").val(sessionStorage.getItem('Value'));
+	$("#deadline").val(sessionStorage.getItem('Deadline'));
+	$("#priority").val(sessionStorage.getItem('IsPriority')).change();
+	$("#task").attr("taskId", sessionStorage.getItem('Id'));
 });
 
 function saveTask(){
