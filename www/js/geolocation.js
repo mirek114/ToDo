@@ -1,111 +1,43 @@
-    // onSuccess Callback 
-    // This method accepts a Position object, which contains the 
-    // current GPS coordinates 
-    // 
-    // var onSuccess = function(position) {
-        // alert('Latitude: '          + position.coords.latitude          + '\n' +
-              // 'Longitude: '         + position.coords.longitude         + '\n' +
-              // 'Altitude: '          + position.coords.altitude          + '\n' +
-              // 'Accuracy: '          + position.coords.accuracy          + '\n' +
-              // 'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-              // 'Heading: '           + position.coords.heading           + '\n' +
-              // 'Speed: '             + position.coords.speed             + '\n' +
-              // 'Timestamp: '         + position.timestamp                + '\n');
-    // };
- 
-   // onError Callback receives a PositionError object 
-    
-    // function onError(error) {
-        // alert('code: '    + error.code    + '\n' +
-              // 'message: ' + error.message + '\n');
-    // }
- 
-    // navigator.geolocation.getCurrentPosition(onSuccess, onError);
+var map;
+
+function showCurrentPosition(){
+	console.log("Called showcurrentPosition()");
 	
-	
-	
-	
-	
-	
-	var Latitude = undefined;
-var Longitude = undefined;
- 
-// Get geo coordinates 
- 
-function getMapLocation() {
- 
-    navigator.geolocation.getCurrentPosition
-    (onMapSuccess, onMapError, { enableHighAccuracy: true });
-	
-	getMap(latitude, longitude);
+		if (navigator.geolocation){
+			navigator.geolocation.getCurrentPosition(geolocationSuccess, handleNoGeolocation, {timeout: 3000. enableHighAccuracy: true, maximumAge: 75000});
+		}
 }
- 
-// Success callback for get geo coordinates 
- 
-var onMapSuccess = function (position) {
- 
-    Latitude = position.coords.latitude;
-    Longitude = position.coords.longitude;
- 
-    getMap(Latitude, Longitude);
- 
-}
- 
-// Get map by using coordinates 
- 
-function getMap(latitude, longitude) {
- 
-    var mapOptions = {
-        center: new google.maps.LatLng(0, 0),
-        zoom: 1,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
- 
-    map = new google.maps.Map
-    (document.getElementById("map"), mapOptions);
- 
- 
-    var latLong = new google.maps.LatLng(latitude, longitude);
- 
-    var marker = new google.maps.Marker({
-        position: latLong
-    });
- 
-    marker.setMap(map);
-    map.setZoom(15);
-    map.setCenter(marker.getPosition());
-}
- 
-// Success callback for watching your changing position 
- 
-var onMapWatchSuccess = function (position) {
- 
-    var updatedLatitude = position.coords.latitude;
-    var updatedLongitude = position.coords.longitude;
- 
-    if (updatedLatitude != Latitude && updatedLongitude != Longitude) {
- 
-        Latitude = updatedLatitude;
-        Longitude = updatedLongitude;
- 
-        getMap(updatedLatitude, updatedLongitude);
-    }
-}
- 
-// Error callback 
- 
-function onMapError(error) {
-    console.log('code: ' + error.code + '\n' +
-        'message: ' + error.message + '\n');
-}
- 
-// Watch your changing position 
- 
-function watchMapPosition() {
- 
-    return navigator.geolocation.watchPosition
-    (onMapWatchSuccess, onMapError, { enableHighAccuracy: true });
-}
- 
+
+function geolocationSuccess(p){
+	$('#Latitude').text("Latitude: " + p.coords.latutude);
+	$('#Longitude').text("Longitude: " + p.coords.longitude);
 	
+		var pos = new google.maps.Latlng(p.coords.latitude, p.coords.longitude);
+		
+		var mapOptions = {center: pos, zoom: 13, mapTypeId: google.maps.MapTypeId.ROADMAP};
+		
+		map = new google.maps.Map(document.getElementById('geomap'), mapOptions);
+		
+		var marker = new google.maps.Marker({position: pos, title: "Jestes Tutaj!"});
+		
+		marker.setMap(map);
+		map.setCenter(pos);
+}
+
+
+function handleNoGeolocation(errorFlag){
+	if (errorFlag){
+		var content = 'Blad: uslaka lokalizacji nie dzila!';
+	}
+	Else {
+		var content = 'Twoja przegladarka nie obsluguje geolokalizacji!';
+	}
+	
+	console.log("Error: + errorFlag.message);
+	
+	var options = {map: map, position: new google.maps.LatLng(60, 105), content: content};
+	
+	var infowindow = new google.maps.InfoWindow(options);
+	map.setCenter(options.posiotion);
+}
 	
