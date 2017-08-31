@@ -11,7 +11,7 @@
 		<script src="js/geolocation.js"></script>
 
 		<script src="js/androPermission.js"></script>
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEKKGude1hQZ28jar8Ovy7xVpy_lVIVSM&sensor=true"></script>
+
 	
  <!-- <script type="text/javascript"> -->
 	<!-- function initialize(){ -->
@@ -82,53 +82,70 @@
  
  
  <script type="text/javascript" charset="utf-8">
-	$(document).on('pageinit', '#taskDetails', function(e,data){getPos();});
-	var lat ;
-	var lng ;
+	//$(document).on('pageinit', '#taskDetails', function(e,data){getPos();});
+	//var lat ;
+	//var lng ;
 	
 	//function getPos(){
 	//navigator.geolocation.getCurrentPosition(onSuccess, onError);
 	//}
 	
-	function initializeMap(){
+	<!-- function initializeMap(){ -->
 	
 	
-		//console.log("init" +lat+":lng);
+		<!-- //console.log("init" +lat+":lng); -->
 		
-		lat = 0;
-		lng = 0;
+		<!-- lat = 0; -->
+		<!-- lng = 0; -->
 		
-		var myLatlng = new google.maps.Latlng(lat,lng);
-		var mapOptions = {
-		zoom: 12, center: myLatlng, mapTypeId: google.maps.MapTypeId.ROADMAP}
+		<!-- var myLatlng = new google.maps.Latlng(14.5,-90.7); -->
+		<!-- var mapOptions = {zoom: 12, center: myLatlng, mapTypeId: google.maps.MapTypeId.ROADMAP} -->
 
-			var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+			<!-- var map = new google.maps.Map(document.getElementById("map"), mapOptions); -->
 			
-			var marker = new google.maps.Marker({posotion: myLatlng, map: map, draggable: true, title: "Ustaw miejsce docelowe"});
+			<!-- var marker = new google.maps.Marker({posotion: myLatlng, map: map, draggable: true, title: "Ustaw miejsce docelowe"}); -->
 			
-			}
+			<!-- } -->
 			
 			
-	function onSuccess(position){
-		lat = position.coords.latitude;
-		lng = position.coords.longitude;
-		//console.log("getpos: "+lat+":"+lng);
-		initializeMap();
-}
+	<!-- function onSuccess(position){ -->
+		<!-- lat = position.coords.latitude; -->
+		<!-- lng = position.coords.longitude; -->
+		<!-- //console.log("getpos: "+lat+":"+lng); -->
+		<!-- initializeMap(); -->
+<!-- } -->
 
 
-	function onError(error){
-		alert('code: '+error.code +'\n' + 'message: ' + error.message + '\n');
-		</script>
+	<!-- function onError(error){ -->
+		<!-- alert('code: '+error.code +'\n' + 'message: ' + error.message + '\n'); -->
+		<!-- </script> -->
  
  
  
  
  
+ <!-- <script  type="text/javascript" charset="utf-8"> -->
+ <!-- function geolocation(){ -->
+	<!-- var options = {enableHightAccuracy: true}; -->
+	<!-- watchID = navigator.geolocation.watchPosition(onSuccess, onError, options); -->
+	
+	<!-- function onSuccess(position){ -->
+		<!-- var lat = position.coords.latitude; -->
+		<!-- var lng = position.coords.longitude; -->
+		
+		<!-- localStorage.setItem("latitude", lat); -->
+		<!-- localStorage.setItem("longitude", lng); -->
+		
+		<!-- alert("lat:" + lat + "long:"+ lng); -->
+		<!-- } -->
+		
+	<!-- function onError(error){ -->
+			<!-- alert("code: " + error.message); -->
+			<!-- } -->
+			
+	<!-- geolocation();		 -->
  
- 
- 
- 
+ <!-- </script> -->
  
  
  
@@ -141,7 +158,7 @@
  
  
 	</head>
-	<body>	
+	<body onload="initializeMap()">	
 		
 		<div data-role="page" id="taskDetails">
 		  <div data-role="header">
@@ -165,27 +182,25 @@
 						</select> 	
 						
 					</div>	
-					<a id="btnSave" rel="external" class="ui-btn" onclick="initializeMap()">Pokaz mape</a>
-					
+					<a id="btnSave" rel="external" class="ui-btn" onclick=" onBtnClicked()">Pokaz mape</a>
+					<a id="btnSave" href="index.html" rel="external" class="ui-btn" onclick="saveTask()">Zapisz</a>
 		
-					<style type= "text/css">
-					html{height:100%}
-					body{height:100%; margin:0; padding:0}
-					#map-canvas {height:400px}
 					
-					#content {
-					padding:0;
-					position: absolute;
-					top: 40px;
-					right: 0;
-					bottom: 40px;
-					left: 0;
-					}
-					</style>
-					<div data-role="content" id="content">
-						<div id="map-canvas"></div>
+					
+					<div id="map" style="width:500px; height:500px"></div>
 						</div>
-					
+						
+	<script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEKKGude1hQZ28jar8Ovy7xVpy_lVIVSM&callback=initMap"
+    async defer></script>
 					
 					
 					
@@ -193,7 +208,7 @@
 					
 						
 					
-					<a id="btnSave" href="index.html" rel="external" class="ui-btn" onclick="saveTask()">Zapisz</a>
+					
 					
 					
 				</form>
