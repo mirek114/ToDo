@@ -69,7 +69,7 @@
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <meta-data
-              android:name="com.google.android.geo.API_KEY"
+              android:name="com.google.android.geo.AIzaSyB-j3DF5kMBuBq9DDlkJ-MatxxbnxG-c08"
               android:value="AIzaSyB-j3DF5kMBuBq9DDlkJ-MatxxbnxG-c08" />
             <!-- Google Play Services SDK -->
             <meta-data android:name="com.google.android.gms.version"
@@ -185,7 +185,7 @@
         <source-file src="src/ios/GoogleMaps/MyPluginScrollView.m" />
 
         <config-file target="*-Info.plist" parent="Google Maps API Key">
-            <string>AIzaSyDKZX8pMRH7XGblEqL8PsYn6ESmveGo_-g</string>
+            <string>AIzaSyB-j3DF5kMBuBq9DDlkJ-MatxxbnxG-c08</string>
         </config-file>
 
         <preference name="NSLocationWhenInUseUsageDescription" default="Show your location on the map" />
