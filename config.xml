@@ -20,6 +20,6 @@
 
 <plugin name="cordova-plugin-geolocation"  source="npm"  />
 <plugin name="cordova-plugin-android-permissions" source="npm" />
-<plugin name="cordova-plugin-googlemaps" source="npm" />
+
 
 </widget>
