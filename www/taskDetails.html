@@ -8,6 +8,7 @@
 		<script src="js/databaseHandler.js"></script>
 		<script src="js/tasksHandler.js"></script>
 		<script src="js/taskDetails.js"></script>
+		<script src="js/geolocation.js"></script>
 	</head>
 	<body>	
 		
@@ -33,10 +34,23 @@
 						</select> 	
 						
 					</div>					  
+					
+					<button onclick="showCurretnPosition()">Pokaz polozenie</button>
+					<div id="Latitude">Szerokosc: </div>
+					<div id="Longitude">Dlugosc: </div>
+					<div id="geomap" style="height:300px;width:100%"></div>
+					
+						
+					
 					<a id="btnSave" href="index.html" rel="external" class="ui-btn" onclick="saveTask()">Zapisz</a>
+					
+					
 				</form>
 			 </div>
 		</div> 
 
+		map = plugin.google.maps.Map.getMap(div);
+		
+		
 	</body>
 </html>
