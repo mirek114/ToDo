@@ -124,19 +124,27 @@
  
  
  
- <!-- <script  type="text/javascript" charset="utf-8"> -->
+ <!-- <script> -->
  <!-- function geolocation(){ -->
 	<!-- var options = {enableHightAccuracy: true}; -->
 	<!-- watchID = navigator.geolocation.watchPosition(onSuccess, onError, options); -->
 	
 	<!-- function onSuccess(position){ -->
-		<!-- var lat = position.coords.latitude; -->
-		<!-- var lng = position.coords.longitude; -->
+		<!-- var latt = position.coords.latitude; -->
+		<!-- var lngg = position.coords.longitude; -->
 		
-		<!-- localStorage.setItem("latitude", lat); -->
-		<!-- localStorage.setItem("longitude", lng); -->
+		<!-- localStorage.setItem("latitude", latt); -->
+		<!-- localStorage.setItem("longitude", lngg); -->
 		
-		<!-- alert("lat:" + lat + "long:"+ lng); -->
+		
+		
+		
+		
+      <!-- } -->
+		
+		
+		
+		
 		<!-- } -->
 		
 	<!-- function onError(error){ -->
@@ -148,7 +156,23 @@
  <!-- </script> -->
  
  
- 
+ <!-- <script> -->
+  <!-- var map; -->
+  <!-- var options = {enableHightAccuracy: true}; -->
+      <!-- function initMap() { -->
+	  
+		<!-- watchID = navigator.geolocation.watchPosition(onSuccess, onError, options); -->
+		<!-- var latt = position.coords.latitude; -->
+		<!-- var lngg = position.coords.longitude; -->
+        <!-- map = new google.maps.Map(document.getElementById('map'), { -->
+          <!-- center: {lat: latt, lng: lngg}, -->
+          <!-- zoom: 8 -->
+        <!-- }); -->
+		
+		
+		
+		
+<!-- </script> -->
  
  
  
@@ -192,13 +216,43 @@
 						
 	<script>
       var map;
+	
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
+          center: {lat: 50.06907792112787, lng: 19.95501548051834},
+          zoom: 18
+		  
+		
+		  
         });
+		 var marker = new google.maps.Marker({position: {lat: 50.06907792112787, lng: 19.95501548051834}, map: map, draggable: true, title: "Ustaw miejsce docelowe"}); 
       }
     </script>
+	
+	
+	 <!-- <script> -->
+  <!-- var map; -->
+  <!-- var options = {enableHightAccuracy: true}; -->
+      <!-- function initMap() { -->
+	  
+		<!-- watchID = navigator.geolocation.watchPosition(onSuccess, onError, options); -->
+		<!-- var latt = position.coords.latitude; -->
+		<!-- var lngg = position.coords.longitude; -->
+        <!-- map = new google.maps.Map(document.getElementById('map'), { -->
+          <!-- center: {lat: 0, lng: 0}, -->
+          <!-- zoom: 8 -->
+        <!-- }); -->
+		
+		
+		
+		
+<!-- </script> -->
+ 
+	
+	
+	
+	
+	
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEKKGude1hQZ28jar8Ovy7xVpy_lVIVSM&callback=initMap"
     async defer></script>
 					
