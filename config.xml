@@ -4,7 +4,7 @@
 		id          = "myfirstapp"
         version     = "1.0.0" >
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKZX8pMRH7XGblEqL8PsYn6ESmveGo_-g"></script>
-<preference API_KEY_FOR_ANDROID="AIzaSyDKZX8pMRH7XGblEqL8PsYn6ESmveGo_-g"></preference>
+<preference API_KEY_FOR_ANDROID="AIzaSyDKZX8pMRH7XGblEqL8PsYn6ESmveGo_-g" />
     <name>First app</name>
     <description>My first mobile app</description>
     <author href="http://mypersonalwebsite.com" email="johnbrown@gmail.com">
