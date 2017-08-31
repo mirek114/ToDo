@@ -9,9 +9,136 @@
 		<script src="js/tasksHandler.js"></script>
 		<script src="js/taskDetails.js"></script>
 		<script src="js/geolocation.js"></script>
+
 		<script src="js/androPermission.js"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-j3DF5kMBuBq9DDlkJ-MatxxbnxG-c08"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-j3DF5kMBuBq9DDlkJ-MatxxbnxG-c08&sensor=true"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEKKGude1hQZ28jar8Ovy7xVpy_lVIVSM&sensor=true"></script>
+	
+ <!-- <script type="text/javascript"> -->
+	<!-- function initialize(){ -->
+		<!-- var mapOptions = {center: new google.maps.Latlng(-34.300, 150.300), -->
+		<!-- zoom: 13, -->
+		<!-- mapTypeId: googlem.maps.MapTypeId.ROADMAP}; -->
+
+			<!-- var map = new google.maps.Map(document.getElementById("map-canvas"), -->
+			<!-- mapOptions); -->
+			<!-- } -->
+			<!-- google.maps.event.addDomListener(window, 'load', initialize); -->
+		<!-- </script> -->
+		
+ 
+ 
+ 
+ 
+ <!-- <script type="text/javascript"> -->
+ <!-- var map; -->
+
+<!-- function showCurrentPosition(){ -->
+	<!-- console.log("Called showcurrentPosition()"); -->
+	
+		<!-- if (navigator.geolocation){ -->
+			<!-- navigator.geolocation.getCurrentPosition(geolocationSuccess, handleNoGeolocation, {timeout: 3000. enableHighAccuracy: true, maximumAge: 75000}); -->
+		<!-- } -->
+<!-- } -->
+
+<!-- function geolocationSuccess(p){ -->
+	<!-- $('#Latitude').text("Latitude: " + p.coords.latutude); -->
+	<!-- $('#Longitude').text("Longitude: " + p.coords.longitude); -->
+	
+		<!-- var pos = new google.maps.Latlng(p.coords.latitude, p.coords.longitude); -->
+		
+		<!-- var mapOptions = {center: pos, zoom: 13, mapTypeId: google.maps.MapTypeId.ROADMAP}; -->
+		
+		<!-- map = new google.maps.Map(document.getElementById('geomap'), mapOptions); -->
+		
+		<!-- var marker = new google.maps.Marker({position: pos, title: "Jestes Tutaj!"}); -->
+		
+		<!-- marker.setMap(map); -->
+		<!-- map.setCenter(pos); -->
+<!-- } -->
+
+
+<!-- function handleNoGeolocation(errorFlag){ -->
+	<!-- if (errorFlag){ -->
+		<!-- var content = 'Blad: uslaka lokalizacji nie dzila!'; -->
+	<!-- } -->
+	<!-- Else { -->
+		<!-- var content = 'Twoja przegladarka nie obsluguje geolokalizacji!'; -->
+	<!-- } -->
+	
+	<!-- console.log("Error: + errorFlag.message); -->
+	
+	<!-- var options = {map: map, position: new google.maps.LatLng(60, 105), content: content}; -->
+	
+	<!-- var infowindow = new google.maps.InfoWindow(options); -->
+	<!-- map.setCenter(options.posiotion); -->
+<!-- } -->
+	
+ 
+ 
+ 
+ <!-- </script> -->
+ 
+ 
+ 
+ 
+ <script type="text/javascript" charset="utf-8">
+	$(document).on('pageinit', '#taskDetails', function(e,data){getPos();});
+	var lat ;
+	var lng ;
+	
+	//function getPos(){
+	//navigator.geolocation.getCurrentPosition(onSuccess, onError);
+	//}
+	
+	function initializeMap(){
+	
+	
+		//console.log("init" +lat+":lng);
+		
+		lat = 0;
+		lng = 0;
+		
+		var myLatlng = new google.maps.Latlng(lat,lng);
+		var mapOptions = {
+		zoom: 12, center: myLatlng, mapTypeId: google.maps.MapTypeId.ROADMAP}
+
+			var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+			
+			var marker = new google.maps.Marker({posotion: myLatlng, map: map, draggable: true, title: "Ustaw miejsce docelowe"});
+			
+			}
+			
+			
+	function onSuccess(position){
+		lat = position.coords.latitude;
+		lng = position.coords.longitude;
+		//console.log("getpos: "+lat+":"+lng);
+		initializeMap();
+}
+
+
+	function onError(error){
+		alert('code: '+error.code +'\n' + 'message: ' + error.message + '\n');
+		</script>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
 	</head>
 	<body>	
@@ -38,12 +165,31 @@
 						</select> 	
 						
 					</div>	
-					<button onclick="showCurrentPosition()">Pokaz Lokalizacje</button>
-					<div id="Latitude">Latitude:</div>
-					<div id="Longitude">Longitude:</div>
-					<div id=geomap" style="height:300px;width:100%"></div>
+					<a id="btnSave" rel="external" class="ui-btn" onclick="initializeMap()">Pokaz mape</a>
 					
-					 
+		
+					<style type= "text/css">
+					html{height:100%}
+					body{height:100%; margin:0; padding:0}
+					#map-canvas {height:400px}
+					
+					#content {
+					padding:0;
+					position: absolute;
+					top: 40px;
+					right: 0;
+					bottom: 40px;
+					left: 0;
+					}
+					</style>
+					<div data-role="content" id="content">
+						<div id="map-canvas"></div>
+						</div>
+					
+					
+					
+					
+					 </div>
 					
 						
 					
