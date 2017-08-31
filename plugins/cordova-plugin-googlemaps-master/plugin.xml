@@ -21,8 +21,7 @@
 
     <!-- android -->
     <platform name="android">
-        <preference name="API_KEY_FOR_ANDROID" />
-        <prefer API_KEY_FOR_ANDROID = "AIzaSyDKZX8pMRH7XGblEqL8PsYn6ESmveGo_-g"/>
+               
         <info>
           This is version 1.4.5. The version 1.4.x will be shutdown soon.
           Please use the v2.0-beta3. More details: https://goo.gl/A1e9EZ
@@ -70,7 +69,7 @@
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <meta-data
               android:name="com.google.android.geo.API_KEY"
-              android:value="$API_KEY_FOR_ANDROID" />
+              android:value="AIzaSyDKZX8pMRH7XGblEqL8PsYn6ESmveGo_-g" />
             <!-- Google Play Services SDK -->
             <meta-data android:name="com.google.android.gms.version"
                        android:value="@integer/google_play_services_version" />
