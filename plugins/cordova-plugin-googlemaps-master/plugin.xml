@@ -185,7 +185,7 @@
         <source-file src="src/ios/GoogleMaps/MyPluginScrollView.m" />
 
         <config-file target="*-Info.plist" parent="Google Maps API Key">
-            <string>$API_KEY_FOR_IOS</string>
+            <string>AIzaSyDKZX8pMRH7XGblEqL8PsYn6ESmveGo_-g</string>
         </config-file>
 
         <preference name="NSLocationWhenInUseUsageDescription" default="Show your location on the map" />
