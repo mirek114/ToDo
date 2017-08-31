@@ -5,8 +5,8 @@
         version     = "1.0.0" >
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKZX8pMRH7XGblEqL8PsYn6ESmveGo_-g"></script>
 
-    <name>First app</name>
-    <description>My first mobile app</description>
+    <name>Task Callendary</name>
+    <description>Task Callendary mobile</description>
     <author href="http://mypersonalwebsite.com" email="johnbrown@gmail.com">
 		John Brown
 	</author>
