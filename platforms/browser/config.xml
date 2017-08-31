@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="myfirstapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-j3DF5kMBuBq9DDlkJ-MatxxbnxG-c08"></script>
     <feature name="Device">
         <param name="browser-package" value="Device" />
     </feature>
@@ -7,5 +8,6 @@
     <description>My first mobile app</description>
     <author email="johnbrown@gmail.com" href="http://mypersonalwebsite.com">
 		John Brown
+		
 	</author>
 </widget>
